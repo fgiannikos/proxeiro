@@ -1,3 +1,5 @@
 stills/
-# Embeds the client painting; kept out of the public repo
+# Client painting and anything rendered from it stay out of the public repo
 impasto-recall/impasto-recall.html
+painting.jpg
+*-v2.mp4

@@ -2,15 +2,22 @@ import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
 import { spawn } from 'node:child_process';
 import path from 'node:path';
 const mode = process.argv[2] || 'stills';
+const scene = process.env.SCENE || 'scene.html';
+import fs from 'node:fs';
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
-await page.goto('file://' + path.resolve('scene.html'));
+if (fs.existsSync('painting.jpg')) {
+  const uri = 'data:image/jpeg;base64,' + fs.readFileSync('painting.jpg').toString('base64');
+  await page.addInitScript(u => { window.PAINTING = u; }, uri);
+}
+await page.goto('file://' + path.resolve(scene));
+await page.evaluate(() => window.ready);
 await page.evaluate(() => document.fonts.ready);
 await page.waitForTimeout(500);
 if (mode === 'stills') {
   for (const t of (process.argv[3] || '2,5,8,9.5,11.5,15').split(',').map(Number)) {
     await page.evaluate(t => renderAt(t), t);
-    await page.screenshot({ path: `stills/t${t}.png` });
+    await page.screenshot({ path: `stills/${scene.replace('.html', '')}-t${t}.png` });
   }
 } else {
   const fps = 30, dur = 15;
