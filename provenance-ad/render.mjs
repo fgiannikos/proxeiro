@@ -20,7 +20,7 @@ if (mode === 'stills') {
     await page.screenshot({ path: `stills/${scene.replace('.html', '')}-t${t}.png` });
   }
 } else {
-  const fps = 30, dur = 15;
+  const fps = 30, dur = Number(process.env.DUR || 15);
   const ff = spawn('ffmpeg', ['-y', '-f', 'image2pipe', '-framerate', String(fps), '-i', '-',
     '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', '-preset', 'slow', '-movflags', '+faststart', mode], { stdio: ['pipe', 'inherit', 'inherit'] });
   for (let f = 0; f < fps * dur; f++) {
