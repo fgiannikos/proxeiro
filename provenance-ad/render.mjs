@@ -10,6 +10,11 @@ if (fs.existsSync('painting.jpg')) {
   const uri = 'data:image/jpeg;base64,' + fs.readFileSync('painting.jpg').toString('base64');
   await page.addInitScript(u => { window.PAINTING = u; }, uri);
 }
+if (fs.existsSync('memory-frames')) {
+  const frames = fs.readdirSync('memory-frames').filter(f => f.endsWith('.jpg')).sort()
+    .map(f => 'data:image/jpeg;base64,' + fs.readFileSync('memory-frames/' + f).toString('base64'));
+  await page.addInitScript(fr => { window.MEMFRAMES = fr; }, frames);
+}
 await page.goto('file://' + path.resolve(scene));
 await page.evaluate(() => window.ready);
 await page.evaluate(() => document.fonts.ready);
