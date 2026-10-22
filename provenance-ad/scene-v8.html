@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;1,300&family=Noto+Serif:wght@400&display=block" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #F5EFE4; }
+  svg { display: block; }
+  .ink { fill: none; stroke: #2E2823; stroke-linecap: round; stroke-linejoin: round; }
+  .t1 { font-family: 'Noto Serif Display', serif; font-weight: 300; font-size: 68px; fill: #2E2823; }
+  .t2 { font-family: 'Noto Serif Display', serif; font-weight: 400; font-size: 40px; letter-spacing: 12px; fill: #2E2823; }
+  .t3 { font-family: 'Noto Serif', serif; font-size: 34px; fill: #8A6A35; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+<svg id="s" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- watercolor: displaced, softened shapes -->
+    <filter id="wc" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="38" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="3"/>
+    </filter>
+    <filter id="paper" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 0.45  0 0 0 0 0.38  0 0 0 0 0.3  0 0 0 0.06 0"/>
+    </filter>
+    <filter id="edge"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="11" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="60"/><feGaussianBlur stdDeviation="6"/></filter>
+    <!-- bloom masks -->
+    <filter id="pop" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="5" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5"/></filter>
+
+    <!-- golden retriever head, front view, centred at 0,0 -->
+    <g id="headInk">
+      <path d="M -66,-48 C -72,-100 -24,-110 -10,-104 L -2,-118 L 6,-104 C 24,-110 72,-100 66,-48"/>
+      <path d="M -60,-66 C -98,-76 -138,-52 -152,-12 C -158,8 -152,30 -142,44 C -138,34 -134,40 -128,48 C -124,38 -120,42 -114,46 C -106,26 -92,14 -74,14 L -72,36"/>
+      <path d="M 60,-66 C 98,-76 138,-52 152,-12 C 158,8 152,30 142,44 C 138,34 134,40 128,48 C 124,38 120,42 114,46 C 106,26 92,14 74,14 L 72,36"/>
+      <path d="M -72,36 C -72,58 -64,78 -50,94 L -56,100 L -44,102"/>
+      <path d="M 72,36 C 72,58 64,78 50,94 L 56,100 L 44,102"/>
+      <path d="M -44,102 C -52,124 -40,140 -30,134 M 44,102 C 52,124 40,140 30,134"/>
+      <path d="M -26,-8 C -38,-18 -46,-12 -50,-4"/>
+      <path d="M 26,-8 C 38,-18 46,-12 50,-4"/>
+      <path d="M 0,110 L 0,122 M -32,132 C -20,136 -8,132 0,122 C 8,132 20,136 32,132"/>
+    </g>
+    <g id="headSolid">
+      <circle cx="-32" cy="12" r="8.5"/>
+      <circle cx="32" cy="12" r="8.5"/>
+      <circle cx="-29" cy="9" r="2.6" fill="#FFF8EC"/>
+      <circle cx="35" cy="9" r="2.6" fill="#FFF8EC"/>
+      <path d="M -21,94 C -21,80 21,80 21,94 C 21,106 7,114 0,114 C -7,114 -21,106 -21,94 Z" fill="#4A2A22"/>
+      <path d="M -10,86 C -6,83 2,83 6,86" fill="none" stroke="#9C6A58" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M -30,134 C -22,168 22,168 30,134 C 18,140 -18,140 -30,134 Z" fill="#3A2018"/>
+      <path d="M -15,142 C -18,182 18,182 15,142 C 8,146 -8,146 -15,142 Z" fill="#E8899A" stroke="#2E2823" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M 0,148 L 0,166" fill="none" stroke="#B9586A" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    <!-- wash shapes for the head -->
+    <g id="headWash">
+      <path d="M -66,-48 C -72,-100 -24,-110 -10,-104 L -2,-118 L 6,-104 C 24,-110 72,-100 66,-48 C 74,10 72,40 72,36 C 72,58 64,78 50,94 C 52,124 40,140 30,134 C 18,140 -18,140 -30,134 C -40,140 -52,124 -50,94 C -64,78 -72,58 -72,36 C -72,40 -74,10 -66,-48 Z" fill="#D58B3A"/>
+      <ellipse cx="0" cy="-62" rx="38" ry="24" fill="#EDB56A"/>
+      <path d="M -60,-66 C -98,-76 -138,-52 -152,-12 C -158,8 -152,30 -142,44 C -138,34 -134,40 -128,48 C -124,38 -120,42 -114,46 C -106,26 -92,14 -74,14 L -72,36 Z" fill="#A85C1E"/>
+      <path d="M 60,-66 C 98,-76 138,-52 152,-12 C 158,8 152,30 142,44 C 138,34 134,40 128,48 C 124,38 120,42 114,46 C 106,26 92,14 74,14 L 72,36 Z" fill="#A85C1E"/>
+      <path d="M -44,98 C -50,124 -38,136 -30,132 C -18,140 18,140 30,132 C 38,136 50,124 44,98 C 30,90 -30,90 -44,98 Z" fill="#F2D3A0"/>
+    </g>
+    <clipPath id="cloudClip">
+      <circle class="cc" cx="540" cy="650" r="110"/>
+      <circle class="cc" cx="430" cy="660" r="80"/>
+      <circle class="cc" cx="650" cy="660" r="80"/>
+      <circle class="cc" cx="480" cy="580" r="80"/>
+      <circle class="cc" cx="600" cy="575" r="85"/>
+      <circle class="cc" cx="390" cy="690" r="55"/>
+      <circle class="cc" cx="690" cy="695" r="55"/>
+      <circle class="cc" cx="540" cy="720" r="85"/>
+      <circle class="cc" cx="450" cy="720" r="65"/>
+      <circle class="cc" cx="630" cy="720" r="65"/>
+    </clipPath>
+    <clipPath id="frameInner"><rect x="330" y="440" width="420" height="420"/></clipPath>
+    <filter id="dreamy" x="0" y="0" width="100%" height="100%">
+      <feGaussianBlur stdDeviation="1.6"/>
+      <feColorMatrix type="matrix" values="0.62 0.32 0.08 0 0.06  0.26 0.62 0.08 0 0.05  0.2 0.26 0.46 0 0.06  0 0 0 1 0"/>
+    </filter>
+    <radialGradient id="vignette" cx="540" cy="650" r="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0.45" stop-color="#FFFDF8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#FFFDF8" stop-opacity="0.9"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1080" height="1920" fill="#F5EFE4"/>
+  <rect width="1080" height="1920" filter="url(#paper)"/>
+
+  <g id="world">
+    <!-- the door opens before the dog comes in -->
+    <rect id="doorLight" x="93" y="903" width="174" height="474" fill="#FFF1D2" opacity="0"/>
+    <g id="doorPanel" opacity="0">
+      <path id="doorPanelPath" d="M 90,900 L 270,900 L 270,1380 L 90,1380 Z" fill="#F5EFE4" stroke="#2E2823" stroke-width="5" stroke-linejoin="round"/>
+      <path id="doorHandle" d="M 240,1150 L 240,1170" stroke="#2E2823" stroke-width="5" stroke-linecap="round"/>
+    </g>
+
+    <!-- coloured decor (behind the line work) -->
+    <g id="decor" stroke="#2E2823" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+      <g class="pop" data-t="1.5" data-o="540,1640">
+        <ellipse cx="540" cy="1640" rx="380" ry="74" fill="#D98F76" fill-opacity="0.14"/>
+        <ellipse cx="540" cy="1640" rx="336" ry="56" fill="none" stroke="#D98F76" stroke-width="5" stroke-dasharray="20 14"/>
+      </g>
+      <g class="pop" data-t="1.8" data-o="940,1280">
+        <path d="M 800,1380 L 800,1210 C 800,1180 830,1170 860,1170 L 1080,1170 L 1080,1380 Z" fill="#9DB49A" stroke="none"/>
+        <rect x="846" y="1212" width="92" height="82" rx="22" fill="#E0A93B" transform="rotate(-8 892 1253)"/>
+        <rect x="952" y="1210" width="92" height="84" rx="22" fill="#4E8A8F" transform="rotate(7 998 1252)"/>
+      </g>
+      <g class="pop" data-t="2.1" data-o="950,950">
+        <path d="M 836,980 L 1064,980" fill="none" stroke-width="5"/>
+        <rect x="858" y="910" width="24" height="70" fill="#C8654A"/>
+        <rect x="882" y="924" width="20" height="56" fill="#4E8A8F"/>
+        <rect x="902" y="904" width="26" height="76" fill="#E0A93B" transform="rotate(-6 915 980)"/>
+        <path d="M 984,980 C 966,980 964,944 984,936 L 1016,936 C 1036,944 1034,980 1016,980 Z" fill="#E3A7A0"/>
+        <path d="M 1000,936 C 996,904 978,894 966,890 M 1000,936 C 1004,900 1022,890 1036,888 M 1000,936 L 1000,884" fill="none" stroke="#6E9A6A" stroke-width="5"/>
+      </g>
+      <g class="pop" data-t="2.4" data-o="340,1340">
+        <path d="M 340,1300 C 300,1250 270,1200 262,1150 C 300,1180 330,1230 340,1300 Z" fill="#6E9A6A"/>
+        <path d="M 340,1300 C 380,1240 410,1190 420,1136 C 380,1170 350,1220 340,1300 Z" fill="#8FB386"/>
+        <path d="M 340,1300 C 330,1220 336,1150 352,1090 C 366,1160 356,1230 340,1300 Z" fill="#7FA878"/>
+        <path d="M 340,1300 C 312,1270 286,1252 252,1250 C 280,1272 310,1292 340,1300 Z" fill="#8FB386"/>
+        <path d="M 296,1296 L 384,1296 L 372,1380 L 308,1380 Z" fill="#C8654A"/>
+        <path d="M 290,1296 L 390,1296 L 390,1314 L 290,1314 Z" fill="#A9503A"/>
+      </g>
+    </g>
+
+    <!-- room line work -->
+    <g class="ink" stroke-width="5" id="room">
+      <path class="draw" d="M 40,1380 L 1040,1380"/>                                   <!-- wall/floor -->
+      <path class="draw" d="M 90,1380 L 90,900 L 270,900 L 270,1380"/>                 <!-- door -->
+      <path class="draw" id="roomHandle" d="M 240,1150 L 240,1170"/>                                   <!-- handle -->
+      <path class="draw" d="M 310,420 L 770,420 L 770,880 L 310,880 Z"/>              <!-- frame outer -->
+      <path class="draw" d="M 330,440 L 750,440 L 750,860 L 330,860 Z"/>              <!-- frame inner -->
+      <path class="draw" d="M 540,320 L 390,420 M 540,320 L 690,420"/>                 <!-- hanging wire -->
+      <path class="draw" d="M 800,1380 L 800,1210 C 800,1180 830,1170 860,1170 L 1080,1170"/> <!-- sofa back -->
+      <path class="draw" d="M 800,1300 L 1080,1300"/>                                  <!-- sofa seat -->
+      <path class="draw" d="M 840,1380 L 840,1410 M 1020,1380 L 1020,1410"/>          <!-- sofa legs -->
+    </g>
+
+    <!-- memory: a thought cloud that becomes the framed painting -->
+    <g id="memory" opacity="0">
+      <g id="memMove">
+      <g id="cloudBack">
+      <circle class="cb" cx="540" cy="650" r="110" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="430" cy="660" r="80" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="650" cy="660" r="80" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="480" cy="580" r="80" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="600" cy="575" r="85" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="390" cy="690" r="55" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="690" cy="695" r="55" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="540" cy="720" r="85" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="450" cy="720" r="65" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="630" cy="720" r="65" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="540" cy="650" r="110" fill="#FFFDF8"/>
+      <circle class="cb" cx="430" cy="660" r="80" fill="#FFFDF8"/>
+      <circle class="cb" cx="650" cy="660" r="80" fill="#FFFDF8"/>
+      <circle class="cb" cx="480" cy="580" r="80" fill="#FFFDF8"/>
+      <circle class="cb" cx="600" cy="575" r="85" fill="#FFFDF8"/>
+      <circle class="cb" cx="390" cy="690" r="55" fill="#FFFDF8"/>
+      <circle class="cb" cx="690" cy="695" r="55" fill="#FFFDF8"/>
+      <circle class="cb" cx="540" cy="720" r="85" fill="#FFFDF8"/>
+      <circle class="cb" cx="450" cy="720" r="65" fill="#FFFDF8"/>
+      <circle class="cb" cx="630" cy="720" r="65" fill="#FFFDF8"/>
+      </g>
+      <g id="memFrameClip">
+        <g clip-path="url(#cloudClip)">
+          <image id="dream" class="painting" x="330" y="440" width="420" height="420" filter="url(#dreamy)" preserveAspectRatio="xMidYMid slice"/>
+          <image id="real" class="painting" x="330" y="440" width="420" height="420" opacity="0" preserveAspectRatio="xMidYMid slice"/>
+          <rect id="vig" x="280" y="390" width="520" height="520" fill="url(#vignette)"/>
+        </g>
+      </g>
+      </g>
+    </g>
+    <g id="trail" fill="#FFFDF8" stroke="#2E2823" stroke-width="4">
+      <circle class="tp" cx="440" cy="1012" r="10"/>
+      <circle class="tp" cx="392" cy="948" r="14"/>
+      <circle class="tp" cx="300" cy="836" r="20"/>
+    </g>
+    <g id="frameGold" opacity="0">
+      <path d="M 310,420 L 770,420 L 770,880 L 310,880 Z M 330,440 L 330,860 L 750,860 L 750,440 Z" fill="#B8924A" fill-rule="evenodd"/>
+      <path d="M 316,426 L 764,426 L 764,874 L 316,874 Z" fill="none" stroke="#E2C27A" stroke-width="2"/>
+      <path class="ink" stroke-width="5" d="M 310,420 L 770,420 L 770,880 L 310,880 Z M 330,440 L 750,440 L 750,860 L 330,860 Z"/>
+    </g>
+
+    <!-- paw prints -->
+    <g id="paws" fill="#2E2823"></g>
+
+    <!-- toys and bowl (in front of the floor) -->
+    <g id="toys" stroke="#2E2823" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+      <g class="pop" data-t="3.9" data-o="800,1565">
+        <path d="M 738,1540 L 862,1540 L 846,1592 L 754,1592 Z" fill="#C8654A"/>
+        <ellipse cx="800" cy="1540" rx="62" ry="13" fill="#8C3E2C"/>
+        <g fill="#F5EFE4" stroke="none"><ellipse cx="800" cy="1574" rx="8" ry="6"/><circle cx="790" cy="1562" r="3.5"/><circle cx="797" cy="1559" r="3.5"/><circle cx="804" cy="1559" r="3.5"/><circle cx="811" cy="1562" r="3.5"/></g>
+      </g>
+      <g class="pop" data-t="4.2" data-o="250,1705">
+        <g transform="rotate(-12 250 1705)">
+          <rect x="182" y="1694" width="136" height="22" rx="11" fill="#E0A93B"/>
+          <path d="M 200,1694 L 214,1716 M 228,1694 L 242,1716 M 256,1694 L 270,1716 M 284,1694 L 298,1716" stroke="#4E8A8F" stroke-width="7"/>
+          <circle cx="178" cy="1705" r="20" fill="#4E8A8F"/>
+          <circle cx="322" cy="1705" r="20" fill="#C8654A"/>
+          <path d="M 160,1716 L 146,1730 M 164,1720 L 156,1738 M 340,1716 L 354,1730 M 336,1720 L 344,1738" stroke-width="3"/>
+        </g>
+      </g>
+      <g class="pop" data-t="4.5" data-o="860,1705">
+        <path transform="rotate(-14 860 1705)" d="M 812,1696 C 800,1680 776,1694 790,1705 C 776,1716 800,1730 812,1714 L 908,1714 C 920,1730 944,1716 930,1705 C 944,1694 920,1680 908,1696 Z" fill="#6A9BCC"/>
+      </g>
+      <g class="pop" data-t="4.8" data-o="975,1560">
+        <path d="M 940,1580 C 936,1550 960,1538 980,1546 C 978,1524 1000,1516 1012,1530 C 1022,1540 1016,1556 1004,1560 C 1024,1566 1020,1594 996,1596 L 960,1596 C 948,1596 942,1590 940,1580 Z" fill="#F2C94C"/>
+        <path d="M 1012,1534 L 1030,1538 L 1014,1546 Z" fill="#E07A3A"/>
+        <circle cx="1002" cy="1534" r="3" fill="#2E2823" stroke="none"/>
+      </g>
+    </g>
+
+    <!-- the living dog, sitting, front view -->
+    <g id="dog" transform="translate(540,1180)">
+      <g id="dogBody">
+        <g id="bodyWash" filter="url(#wc)" opacity="0">
+          <path d="M -60,110 C -100,170 -104,250 -92,320 C -136,330 -146,400 -118,420 L 118,420 C 146,400 136,330 92,320 C 104,250 100,170 60,110 Z" fill="#CF8536"/>
+          <ellipse cx="-104" cy="380" rx="34" ry="34" fill="#A85C1E" opacity="0.55"/>
+          <ellipse cx="104" cy="380" rx="34" ry="34" fill="#A85C1E" opacity="0.55"/>
+          <path d="M -46,150 C -56,214 -22,262 0,268 C 22,262 56,214 46,150 C 20,166 -20,166 -46,150 Z" fill="#F2D3A0"/>
+        </g>
+        <g class="ink" stroke-width="5">
+          <path class="draw" d="M -52,112 C -80,140 -96,170 -95,198 L -106,208 L -96,216 C -100,250 -96,290 -90,322"/>
+          <path class="draw" d="M 52,112 C 80,140 96,170 95,198 L 106,208 L 96,216 C 100,250 96,290 90,322"/>
+          <path class="draw" d="M -90,322 C -136,332 -148,400 -116,420 L -74,420"/>
+          <path class="draw" d="M 90,322 C 136,332 148,400 116,420 L 74,420"/>
+          <path class="draw" d="M -44,230 L -46,396 M 44,230 L 46,396"/>
+          <path class="draw" d="M -76,420 C -78,396 -28,392 -24,420 Z M 24,420 C 28,392 78,396 76,420 Z"/>
+          <path class="draw" d="M -24,420 L 24,420"/>
+          <path class="draw" stroke-width="3.5" d="M -40,206 L -30,222 L -20,210 L -10,228 L 0,214 L 10,228 L 20,210 L 30,222 L 40,206"/>
+        </g>
+        <g id="tail" transform="translate(112,418)"><path class="ink draw" stroke-width="5" d="M 0,0 C 38,4 60,-14 52,-40 M 6,8 C 44,20 74,-2 64,-36"/></g>
+      </g>
+      <g id="dogHead">
+        <g id="headWashG" filter="url(#wc)" opacity="0"><use href="#headWash"/></g>
+        <g class="ink" stroke-width="5"><use href="#headInk" class="drawUse"/></g>
+        <g id="dogSolid" fill="#2E2823" opacity="0"><use href="#headSolid"/></g>
+      </g>
+    </g>
+
+    <!-- tennis ball that rolls in -->
+    <g id="ball" transform="translate(1160,1640)">
+      <g id="ballSpin">
+        <circle r="24" fill="#C9D84A" stroke="#2E2823" stroke-width="4"/>
+        <path d="M -17,-17 C -4,-6 -4,6 -17,17 M 17,-17 C 4,-6 4,6 17,17" fill="none" stroke="#F5EFE4" stroke-width="3.5" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- end card -->
+  <g id="card" opacity="0" text-anchor="middle">
+    <text class="t1" x="540" y="1140">Ο πιο αγαπημένος</text>
+    <text class="t1" x="540" y="1230">πίνακας του σπιτιού.</text>
+    <path d="M 470,1300 L 610,1300" stroke="#B8924A" stroke-width="3"/>
+    <text class="t2" x="546" y="1380">PROVENANCE EDITIONS</text>
+    <text class="t3" x="540" y="1460">Διάλεξε στυλ →</text>
+  </g>
+</svg>
+
+<script>
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const ease = x => x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const prog = (t, a, b) => ease(clamp((t - a) / (b - a)));
+
+// Expand <use> in the dog's head so each stroke can be "drawn".
+const drawUse = document.querySelector('.drawUse');
+const headClone = document.getElementById('headInk').cloneNode(true);
+headClone.removeAttribute('id');
+headClone.querySelectorAll('path').forEach(p => p.classList.add('draw', 'dogHead'));
+drawUse.replaceWith(headClone);
+
+const roomPaths = [...document.querySelectorAll('#room .draw')];
+const dogPaths = [...document.querySelectorAll('#dogHead .draw'), ...[...document.querySelectorAll('#dogBody .draw')].filter(p => !p.closest('#tail'))];
+const tailPath = document.querySelector('#tail .draw');
+[...roomPaths, ...dogPaths, tailPath].forEach(p => {
+  const L = p.getTotalLength();
+  p.dataset.len = L;
+  p.style.strokeDasharray = L;
+  p.style.strokeDashoffset = L;
+});
+
+// Paw prints: from the door to where the dog sits, alternating left/right.
+const pawG = document.getElementById('paws');
+const prints = [];
+const N = 7;
+const P0 = [180, 1415], P1 = [230, 1640], P2 = [430, 1600];
+const bz = (u, k) => (1-u)*(1-u)*P0[k] + 2*(1-u)*u*P1[k] + u*u*P2[k];
+const dbz = (u, k) => 2*(1-u)*(P1[k]-P0[k]) + 2*u*(P2[k]-P1[k]);
+for (let i = 0; i < N; i++) {
+  const u = i / (N - 1);
+  const dx = dbz(u, 0), dy = dbz(u, 1), L = Math.hypot(dx, dy);
+  const side = i % 2 ? 1 : -1;
+  const x = bz(u, 0) + side * 15 * (-dy / L), y = bz(u, 1) + side * 15 * (dx / L);
+  const ang = Math.atan2(dx, -dy) * 180 / Math.PI;
+  const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  g.setAttribute('transform', `translate(${x},${y}) rotate(${ang}) scale(0.9)`);
+  g.innerHTML = '<ellipse cx="0" cy="6" rx="11" ry="9"/><circle cx="-12" cy="-8" r="4.5"/><circle cx="-4.5" cy="-15" r="4.5"/><circle cx="4.5" cy="-15" r="4.5"/><circle cx="12" cy="-8" r="4.5"/>';
+  g.setAttribute('opacity', 0);
+  pawG.appendChild(g);
+  prints.push(g);
+}
+
+function draw(paths, t, a, b) {
+  const n = paths.length, span = b - a, each = span * 0.45;
+  paths.forEach((p, i) => {
+    const s = a + (span - each) * (n > 1 ? i / (n - 1) : 0);
+    p.style.strokeDashoffset = p.dataset.len * (1 - prog(t, s, s + each));
+  });
+}
+
+
+const PAINTING = window.PAINTING || 'painting.jpg';
+document.querySelectorAll('.painting').forEach(el => el.setAttribute('href', PAINTING));
+window.ready = new Promise(res => {
+  const img = new Image();
+  img.onload = () => img.decode().then(res);
+  img.src = PAINTING;
+});
+
+const pops = [...document.querySelectorAll('.pop')];
+const backOut = u => { const c = 1.9; u = clamp(u); return 1 + (c + 1) * Math.pow(u - 1, 3) + c * Math.pow(u - 1, 2); };
+// Hops: [start, duration, height]
+const HOPS = [[7.05, 0.42, 70], [7.55, 0.38, 46], [12.35, 0.46, 84]];
+
+window.renderAt = function (t) {
+  draw(roomPaths, t, 0.2, 2.6);
+
+  // Coloured objects pop in with a little overshoot.
+  pops.forEach(g => {
+    const t0 = +g.dataset.t, [ox, oy] = g.dataset.o.split(',').map(Number);
+    const u = clamp((t - t0) / 0.45), k = u <= 0 ? 0 : backOut(u);
+    g.setAttribute('opacity', clamp(u * 3));
+    g.setAttribute('transform', `translate(${ox},${oy}) scale(${Math.max(0.001, k)}) translate(${-ox},${-oy})`);
+  });
+
+  prints.forEach((g, i) => {
+    const s = 2.95 + i * 0.27;
+    g.setAttribute('opacity', prog(t, s, s + 0.15) * (1 - 0.65 * prog(t, 10, 11.5)) * 0.85);
+  });
+
+  // Door: once drawn, a panel takes over the outline and swings open (2.35-2.9 s).
+  const open = prog(t, 2.35, 2.9);
+  const shown = t >= 2.0 ? 1 : 0;
+  document.getElementById('doorPanel').setAttribute('opacity', shown);
+  document.getElementById('roomHandle').setAttribute('opacity', 1 - shown);
+  document.getElementById('doorLight').setAttribute('opacity', shown * Math.min(1, open * 1.6));
+  const rx = 270 - 150 * open, sk = 26 * open;          // right edge swings toward the hinge, nearer edge grows
+  document.getElementById('doorPanelPath').setAttribute('d', `M 90,900 L ${rx},${900 - sk} L ${rx},${1380 + sk} L 90,1380 Z`);
+  const hx = rx - 30 * (1 - 0.6 * open);
+  document.getElementById('doorHandle').setAttribute('d', `M ${hx},${1150 - sk * 0.1} L ${hx},${1170 + sk * 0.1}`);
+
+  // The dog is drawn, coloured, then comes alive.
+  draw(dogPaths, t, 4.2, 6.2);
+  draw([tailPath], t, 6.0, 6.5);
+  document.getElementById('dogSolid').setAttribute('opacity', prog(t, 6.0, 6.4));
+  const washO = prog(t, 6.2, 7.0);
+  document.getElementById('bodyWash').setAttribute('opacity', washO);
+  document.getElementById('headWashG').setAttribute('opacity', washO);
+
+  let h = 0, air = 0, squash = 0;
+  for (const [t0, d, H] of HOPS) {
+    const u = (t - t0) / d;
+    if (u > 0 && u < 1) { h += H * Math.sin(Math.PI * u); air = Math.max(air, Math.sin(Math.PI * u)); }
+    const pre = (t0 - t) / 0.14, post = (t - t0 - d) / 0.16;          // crouch before, squash on landing
+    if (pre > 0 && pre < 1) squash = Math.max(squash, Math.sin(Math.PI * pre));
+    if (post > 0 && post < 1) squash = Math.max(squash, Math.sin(Math.PI * post));
+  }
+  const sx = 1 - 0.05 * air + 0.07 * squash, sy = 1 + 0.08 * air - 0.11 * squash;
+  document.getElementById('dog').setAttribute('transform',
+    `translate(540,${1180 - h}) translate(0,420) scale(${sx},${sy}) translate(0,-420)`);
+
+  // Head: follows the ball, then looks up dreamily while remembering.
+  const look = 11 * prog(t, 6.9, 7.3) * (1 - prog(t, 8.0, 8.4));
+  const dreamUp = prog(t, 8.4, 8.9) * (1 - prog(t, 12.0, 12.3));
+  const bob = 4 * air;
+  document.getElementById('dogHead').setAttribute('transform',
+    `translate(0,${-bob - 6 * dreamUp}) rotate(${look - 13 * dreamUp} 0 110)`);
+
+  const wagAmp = prog(t, 6.4, 6.8) * (18 + 14 * air) * (1 - 0.6 * dreamUp);
+  document.getElementById('tail').setAttribute('transform', `translate(112,418) rotate(${wagAmp * Math.sin(t * 2 * Math.PI * 2.4)})`);
+
+  // Tennis ball rolls in across the rug and settles by the dog.
+  const bu = clamp((t - 6.4) / 1.5), roll = 1 - Math.pow(1 - bu, 3);
+  const bx = 1160 - 470 * roll, by = 1640 - 10 * Math.abs(Math.sin(roll * Math.PI * 3)) * (1 - roll);
+  document.getElementById('ball').setAttribute('transform', `translate(${bx},${by})`);
+  document.getElementById('ballSpin').setAttribute('transform', `rotate(${-(1160 - bx) / 24 * 180 / Math.PI})`);
+
+  // A memory: while the camera is on the dog's face, thought bubbles rise; the
+  // camera pulls wide to reveal the cloud with the memory of it running; the
+  // cloud then drifts into the frame and swells into the painting.
+  const travel = prog(t, 10.8, 11.7), morph = prog(t, 11.6, 12.5);
+  [...document.querySelectorAll('.tp')].forEach((c, i) => {
+    const u = clamp((t - (8.7 + i * 0.2)) / 0.3), cx = +c.getAttribute('cx'), cy = +c.getAttribute('cy');
+    c.setAttribute('opacity', (u > 0 ? Math.min(1, u * 3) : 0) * (1 - prog(t, 10.8, 11.2)));
+    c.setAttribute('transform', `translate(${cx},${cy}) scale(${Math.max(0.001, backOut(u))}) translate(${-cx},${-cy})`);
+  });
+  const pop = clamp((t - 9.75) / 0.5), popS = pop > 0 ? backOut(pop) : 0.001;
+  const mx = 175 + (540 - 175) * travel, my = 640 + (650 - 640) * travel - 40 * Math.sin(Math.PI * travel);
+  const ms = (0.6 + 0.4 * travel) * popS;
+  document.getElementById('memMove').setAttribute('transform', `translate(${mx},${my}) scale(${Math.max(0.001, ms)}) translate(-540,-650)`);
+  const swell = `translate(540,650) scale(${1 + 1.9 * morph}) translate(-540,-650)`;
+  document.querySelectorAll('.cc, .cb').forEach(c => c.setAttribute('transform', swell));
+  const fc = document.getElementById('memFrameClip');
+  if (morph > 0) fc.setAttribute('clip-path', 'url(#frameInner)'); else fc.removeAttribute('clip-path');
+  document.getElementById('memory').setAttribute('opacity', pop > 0 ? 1 : 0);
+  document.getElementById('cloudBack').setAttribute('opacity', 1 - prog(t, 11.7, 12.4));
+  document.getElementById('vig').setAttribute('opacity', 1 - morph);
+  const gallop = (1 - travel) * prog(t, 9.95, 10.3);
+  const bobY = gallop * (8 * Math.abs(Math.sin(t * Math.PI * 2.6)) - 4), bobX = gallop * 5 * Math.sin(t * Math.PI * 1.3);
+  document.getElementById('dream').setAttribute('transform', `translate(${bobX},${bobY}) translate(540,650) scale(${1 + 0.04 * gallop}) translate(-540,-650)`);
+  document.getElementById('dream').setAttribute('opacity', prog(t, 9.9, 10.3));
+  document.getElementById('real').setAttribute('opacity', prog(t, 11.7, 12.5));
+  document.getElementById('frameGold').setAttribute('opacity', prog(t, 12.1, 12.6));
+
+  // Camera keyframes. Scale is interpolated in log space so moves feel even.
+  const lerpState = (A, B, u) => {
+    const sc = Math.exp(Math.log(A.s) + (Math.log(B.s) - Math.log(A.s)) * u);
+    const k = (A.s === B.s) ? u : (sc - A.s) / (B.s - A.s);
+    return { s: sc, x: A.x + (B.x - A.x) * k, y: A.y + (B.y - A.y) * k };
+  };
+  const at = (s, wx, wy, sx, sy) => ({ s, x: sx - wx * s, y: sy - wy * s });   // put world point (wx,wy) at screen (sx,sy)
+  const WIDE = { s: 1, x: 0, y: 0 };
+  const FACE = at(1.8, 540, 1210, 540, 1000);        // close on the dog's face
+  const PAINT = at(2.3, 540, 650, 540, 1000);       // painting fills the screen
+  const CARD = { s: 0.62, x: 540 - 540 * 0.62, y: -60 };
+  const MOVES = [
+    [7.9, 8.6, WIDE, FACE], [9.2, 10.1, FACE, WIDE],
+    [12.6, 13.4, WIDE, PAINT], [14.0, 14.7, PAINT, CARD],
+  ];
+  let cam = WIDE;
+  for (const [t0, t1, A, B] of MOVES) { if (t >= t0) cam = lerpState(A, B, prog(t, t0, t1)); }
+  document.getElementById('world').setAttribute('transform', `translate(${cam.x},${cam.y}) scale(${cam.s})`);
+  document.getElementById('card').setAttribute('opacity', prog(t, 14.4, 15.0));
+};
+window.ready.then(() => window.renderAt(0));
+</script>
+</body>
+</html>

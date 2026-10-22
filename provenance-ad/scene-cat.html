@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;1,300&family=Noto+Serif:wght@400&display=block" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #F5EFE4; }
+  svg { display: block; }
+  .ink { fill: none; stroke: #2E2823; stroke-linecap: round; stroke-linejoin: round; }
+  .t1 { font-family: 'Noto Serif Display', serif; font-weight: 300; font-size: 68px; fill: #2E2823; }
+  .t2 { font-family: 'Noto Serif Display', serif; font-weight: 400; font-size: 40px; letter-spacing: 12px; fill: #2E2823; }
+  .t4 { font-family: 'Noto Serif', serif; font-size: 28px; fill: #6B5E50; letter-spacing: 3px; }
+  .t3 { font-family: 'Noto Serif', serif; font-size: 34px; fill: #8A6A35; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+<svg id="s" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+<svg id="s" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- watercolor: displaced, softened shapes -->
+    <filter id="wc" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="38" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="3"/>
+    </filter>
+    <filter id="paper" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 0.45  0 0 0 0 0.38  0 0 0 0 0.3  0 0 0 0.06 0"/>
+    </filter>
+    <filter id="edge"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="11" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="60"/><feGaussianBlur stdDeviation="6"/></filter>
+    <clipPath id="cloudClip">
+      <circle class="cc" cx="540" cy="650" r="110"/>
+      <circle class="cc" cx="430" cy="660" r="80"/>
+      <circle class="cc" cx="650" cy="660" r="80"/>
+      <circle class="cc" cx="480" cy="580" r="80"/>
+      <circle class="cc" cx="600" cy="575" r="85"/>
+      <circle class="cc" cx="390" cy="690" r="55"/>
+      <circle class="cc" cx="690" cy="695" r="55"/>
+      <circle class="cc" cx="540" cy="720" r="85"/>
+      <circle class="cc" cx="450" cy="720" r="65"/>
+      <circle class="cc" cx="630" cy="720" r="65"/>
+    </clipPath>
+    <clipPath id="frameInner"><rect x="330" y="440" width="420" height="420"/></clipPath>
+    <filter id="dreamy" x="0" y="0" width="100%" height="100%">
+      <feGaussianBlur stdDeviation="1.6"/>
+      <feColorMatrix type="matrix" values="0.62 0.32 0.08 0 0.06  0.26 0.62 0.08 0 0.05  0.2 0.26 0.46 0 0.06  0 0 0 1 0"/>
+    </filter>
+    <radialGradient id="vignette" cx="540" cy="650" r="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0.45" stop-color="#FFFDF8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#FFFDF8" stop-opacity="0.9"/>
+    </radialGradient>
+    <radialGradient id="lampGlow" cx="1000" cy="930" r="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFE7B0" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FFE7B0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1080" height="1920" fill="#F5EFE4"/>
+  <rect width="1080" height="1920" filter="url(#paper)"/>
+
+  <g id="world">
+    <rect id="glow" x="0" y="0" width="1080" height="1920" fill="url(#lampGlow)" opacity="0"/>
+    <!-- coloured decor (behind the line work) -->
+    <g id="decor" stroke="#2E2823" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+      <g class="pop" data-t="1.5" data-o="540,1640">
+        <ellipse cx="540" cy="1640" rx="380" ry="74" fill="#D98F76" fill-opacity="0.14"/>
+        <ellipse cx="540" cy="1640" rx="336" ry="56" fill="none" stroke="#D98F76" stroke-width="5" stroke-dasharray="20 14"/>
+      </g>
+      <g class="pop" data-t="1.8" data-o="940,1280">
+        <path d="M 800,1380 L 800,1210 C 800,1180 830,1170 860,1170 L 1080,1170 L 1080,1380 Z" fill="#9DB49A" stroke="none"/>
+        <rect x="846" y="1212" width="92" height="82" rx="22" fill="#E0A93B" transform="rotate(-8 892 1253)"/>
+        <rect x="952" y="1210" width="92" height="84" rx="22" fill="#4E8A8F" transform="rotate(7 998 1252)"/>
+      </g>
+      <g class="pop" data-t="2.1" data-o="950,950">
+        <path d="M 836,980 L 1064,980" fill="none" stroke-width="5"/>
+        <rect x="858" y="910" width="24" height="70" fill="#C8654A"/>
+        <rect x="882" y="924" width="20" height="56" fill="#4E8A8F"/>
+        <rect x="902" y="904" width="26" height="76" fill="#E0A93B" transform="rotate(-6 915 980)"/>
+        <path d="M 976,980 L 1024,980 L 1016,968 L 984,968 Z" fill="#8A6A35"/>
+        <path d="M 1000,968 L 1000,936" fill="none" stroke-width="5"/>
+        <path d="M 972,936 L 1028,936 L 1016,900 L 984,900 Z" fill="#E0A93B"/>
+      </g>
+      <g class="pop" data-t="2.4" data-o="340,1340">
+        <path d="M 340,1300 C 300,1250 270,1200 262,1150 C 300,1180 330,1230 340,1300 Z" fill="#6E9A6A"/>
+        <path d="M 340,1300 C 380,1240 410,1190 420,1136 C 380,1170 350,1220 340,1300 Z" fill="#8FB386"/>
+        <path d="M 340,1300 C 330,1220 336,1150 352,1090 C 366,1160 356,1230 340,1300 Z" fill="#7FA878"/>
+        <path d="M 340,1300 C 312,1270 286,1252 252,1250 C 280,1272 310,1292 340,1300 Z" fill="#8FB386"/>
+        <path d="M 296,1296 L 384,1296 L 372,1380 L 308,1380 Z" fill="#C8654A"/>
+        <path d="M 290,1296 L 390,1296 L 390,1314 L 290,1314 Z" fill="#A9503A"/>
+      </g>
+    </g>
+
+    <!-- room line work (revealed by the lamp, not drawn) -->
+    <g class="ink" stroke-width="5" id="room">
+      <path d="M 40,1380 L 1040,1380"/>
+      <path d="M 90,1380 L 90,900 L 270,900 L 270,1380"/>
+      <path d="M 240,1150 L 240,1170"/>
+      <path d="M 160,450 L 500,450 L 500,790 L 160,790 Z"/>
+      <path d="M 180,470 L 480,470 L 480,770 L 180,770 Z"/>
+      <path d="M 330,370 L 220,450 M 330,370 L 440,450"/>
+      <path d="M 580,450 L 920,450 L 920,790 L 580,790 Z"/>
+      <path d="M 600,470 L 900,470 L 900,770 L 600,770 Z"/>
+      <path d="M 750,370 L 640,450 M 750,370 L 860,450"/>
+      <path d="M 800,1380 L 800,1210 C 800,1180 830,1170 860,1170 L 1080,1170"/>
+      <path d="M 800,1300 L 1080,1300"/>
+      <path d="M 840,1380 L 840,1410 M 1020,1380 L 1020,1410"/>
+    </g>
+    <!-- episode 1's portrait, already on the wall -->
+    <image id="dogPainting" x="180" y="470" width="300" height="300" preserveAspectRatio="xMidYMid slice"/>
+    <g id="dogGold" opacity="1">
+      <path d="M 160,450 L 500,450 L 500,790 L 160,790 Z M 180,470 L 180,770 L 480,770 L 480,470 Z" fill="#B8924A" fill-rule="evenodd"/>
+      <path d="M 166,456 L 494,456 L 494,784 L 166,784 Z" fill="none" stroke="#E2C27A" stroke-width="2"/>
+      <path class="ink" stroke-width="5" d="M 160,450 L 500,450 L 500,790 L 160,790 Z M 180,470 L 480,470 L 480,770 L 180,770 Z"/>
+    </g>
+    <!-- yarn ball, the cat's toy -->
+    <g stroke="#2E2823" stroke-width="4" stroke-linecap="round">
+      <path d="M 470,1700 C 520,1720 560,1690 600,1712" fill="none" stroke="#C8483A" stroke-width="3"/>
+      <circle cx="450" cy="1690" r="26" fill="#C8483A"/>
+      <path d="M 430,1676 C 446,1690 460,1700 474,1702 M 428,1694 C 444,1704 458,1710 468,1712 M 440,1666 C 456,1676 468,1690 476,1696" fill="none" stroke="#8C2F25" stroke-width="2.5"/>
+    </g>
+
+    <g id="toys" stroke="#2E2823" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+      <g class="pop" data-t="3.9" data-o="800,1565" transform="translate(170,20)">
+        <path d="M 738,1540 L 862,1540 L 846,1592 L 754,1592 Z" fill="#C8654A"/>
+        <ellipse cx="800" cy="1540" rx="62" ry="13" fill="#8C3E2C"/>
+        <g fill="#F5EFE4" stroke="none"><ellipse cx="800" cy="1574" rx="8" ry="6"/><circle cx="790" cy="1562" r="3.5"/><circle cx="797" cy="1559" r="3.5"/><circle cx="804" cy="1559" r="3.5"/><circle cx="811" cy="1562" r="3.5"/></g>
+      </g>
+      <g class="pop" data-t="4.2" data-o="250,1705">
+        <g transform="rotate(-12 250 1705)">
+          <rect x="182" y="1694" width="136" height="22" rx="11" fill="#E0A93B"/>
+          <path d="M 200,1694 L 214,1716 M 228,1694 L 242,1716 M 256,1694 L 270,1716 M 284,1694 L 298,1716" stroke="#4E8A8F" stroke-width="7"/>
+          <circle cx="178" cy="1705" r="20" fill="#4E8A8F"/>
+          <circle cx="322" cy="1705" r="20" fill="#C8654A"/>
+          <path d="M 160,1716 L 146,1730 M 164,1720 L 156,1738 M 340,1716 L 354,1730 M 336,1720 L 344,1738" stroke-width="3"/>
+        </g>
+      </g>
+      <g class="pop" data-t="4.5" data-o="860,1705">
+        <path transform="rotate(-14 860 1705)" d="M 812,1696 C 800,1680 776,1694 790,1705 C 776,1716 800,1730 812,1714 L 908,1714 C 920,1730 944,1716 930,1705 C 944,1694 920,1680 908,1696 Z" fill="#6A9BCC"/>
+      </g>
+      <g class="pop" data-t="4.8" data-o="975,1560">
+        <path d="M 940,1580 C 936,1550 960,1538 980,1546 C 978,1524 1000,1516 1012,1530 C 1022,1540 1016,1556 1004,1560 C 1024,1566 1020,1594 996,1596 L 960,1596 C 948,1596 942,1590 940,1580 Z" fill="#F2C94C"/>
+        <path d="M 1012,1534 L 1030,1538 L 1014,1546 Z" fill="#E07A3A"/>
+        <circle cx="1002" cy="1534" r="3" fill="#2E2823" stroke="none"/>
+      </g>
+    </g>
+
+
+    <rect id="dark" x="-2000" y="-2000" width="6000" height="6000" fill="#0C0B12" opacity="0.94"/>
+
+    <!-- the black cat (origin = where it sits on the ground) -->
+    <g id="cat">
+      <g id="catBody">
+        <path id="tail" d="M 66,-10 C 112,-6 124,-42 106,-60 C 94,-72 84,-62 92,-50" fill="none" stroke="#1F1C24" stroke-width="20" stroke-linecap="round"/>
+        <path d="M -70,0 C -96,-22 -98,-92 -78,-140 C -66,-172 -50,-190 -40,-200 L 40,-200 C 50,-190 66,-172 78,-140 C 98,-92 96,-22 70,0 Z" fill="#1F1C24" stroke="#0E0C10" stroke-width="4"/>
+        <ellipse cx="-58" cy="-44" rx="30" ry="40" fill="#2A2731"/>
+        <ellipse cx="58" cy="-44" rx="30" ry="40" fill="#2A2731"/>
+        <ellipse cx="0" cy="-150" rx="24" ry="38" fill="#3A3F52" opacity="0.55"/>
+        <path d="M -34,-150 L -34,-6 M -8,-150 L -8,-6 M 8,-150 L 8,-6 M 34,-150 L 34,-6" stroke="#0E0C10" stroke-width="3" opacity="0.7"/>
+        <ellipse cx="-21" cy="-5" rx="17" ry="9" fill="#2E2A34" stroke="#0E0C10" stroke-width="3"/>
+        <ellipse cx="21" cy="-5" rx="17" ry="9" fill="#2E2A34" stroke="#0E0C10" stroke-width="3"/>
+      </g>
+      <g id="catHead">
+        <path d="M -58,-270 L -68,-352 L -16,-306 Z" fill="#1F1C24" stroke="#0E0C10" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M 58,-270 L 68,-352 L 16,-306 Z" fill="#1F1C24" stroke="#0E0C10" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M -54,-284 L -60,-334 L -28,-306 Z" fill="#6B5866"/>
+        <path d="M 54,-284 L 60,-334 L 28,-306 Z" fill="#6B5866"/>
+        <path d="M -62,-248 C -64,-292 -40,-312 0,-312 C 40,-312 64,-292 62,-248 C 60,-208 34,-190 0,-190 C -34,-190 -60,-208 -62,-248 Z" fill="#1F1C24" stroke="#0E0C10" stroke-width="4"/>
+        <ellipse cx="0" cy="-292" rx="28" ry="11" fill="#3A3F52" opacity="0.6"/>
+        <g id="eyeL" class="eye" data-x="-25"></g>
+        <g id="eyeR" class="eye" data-x="25"></g>
+        <path d="M -7,-232 L 7,-232 L 0,-224 Z" fill="#7A5C66"/>
+        <path d="M 0,-224 L 0,-218 M -10,-213 C -5,-209 -2,-212 0,-218 C 2,-212 5,-209 10,-213" fill="none" stroke="#8A8C99" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M -18,-224 L -84,-236 M -18,-220 L -86,-220 M -18,-216 L -80,-204 M 18,-224 L 84,-236 M 18,-220 L 86,-220 M 18,-216 L 80,-204" stroke="#E6E1D6" stroke-width="2" opacity="0.85" stroke-linecap="round"/>
+      </g>
+      <g id="collar">
+        <clipPath id="collarClip"><path d="M -44,-198 C -20,-186 20,-186 44,-198 L 44,-184 C 20,-172 -20,-172 -44,-184 Z"/></clipPath>
+        <g clip-path="url(#collarClip)">
+          <rect x="-46" y="-205" width="32" height="40" fill="#C8483A"/>
+          <rect x="-14" y="-205" width="28" height="40" fill="#E0A93B"/>
+          <rect x="14" y="-205" width="32" height="40" fill="#3E7F86"/>
+        </g>
+        <circle cx="0" cy="-170" r="9" fill="#D8B04A" stroke="#8A6A35" stroke-width="2.5"/>
+        <path d="M -4,-168 L 4,-168" stroke="#6B4E1E" stroke-width="2"/>
+      </g>
+    </g>
+
+    <g id="memory" opacity="0">
+      <g id="memMove">
+      <g id="cloudBack">
+      <circle class="cb" cx="540" cy="650" r="110" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="430" cy="660" r="80" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="650" cy="660" r="80" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="480" cy="580" r="80" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="600" cy="575" r="85" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="390" cy="690" r="55" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="690" cy="695" r="55" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="540" cy="720" r="85" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="450" cy="720" r="65" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="630" cy="720" r="65" fill="none" stroke="#2E2823" stroke-width="10"/>
+      <circle class="cb" cx="540" cy="650" r="110" fill="#FFFDF8"/>
+      <circle class="cb" cx="430" cy="660" r="80" fill="#FFFDF8"/>
+      <circle class="cb" cx="650" cy="660" r="80" fill="#FFFDF8"/>
+      <circle class="cb" cx="480" cy="580" r="80" fill="#FFFDF8"/>
+      <circle class="cb" cx="600" cy="575" r="85" fill="#FFFDF8"/>
+      <circle class="cb" cx="390" cy="690" r="55" fill="#FFFDF8"/>
+      <circle class="cb" cx="690" cy="695" r="55" fill="#FFFDF8"/>
+      <circle class="cb" cx="540" cy="720" r="85" fill="#FFFDF8"/>
+      <circle class="cb" cx="450" cy="720" r="65" fill="#FFFDF8"/>
+      <circle class="cb" cx="630" cy="720" r="65" fill="#FFFDF8"/>
+      </g>
+      <g id="memFrameClip">
+        <g clip-path="url(#cloudClip)">
+          <image id="dream" class="catpainting" x="330" y="440" width="420" height="420" filter="url(#dreamy)" preserveAspectRatio="xMidYMid slice"/>
+          <image id="real" class="catpainting" x="330" y="440" width="420" height="420" opacity="0" preserveAspectRatio="xMidYMid slice"/>
+          <rect id="vig" x="280" y="390" width="520" height="520" fill="url(#vignette)"/>
+        </g>
+      </g>
+      </g>
+    </g>
+    <g id="trail" fill="#FFFDF8" stroke="#2E2823" stroke-width="4">
+      <circle class="tp" cx="668" cy="1262" r="9"/>
+      <circle class="tp" cx="640" cy="1222" r="12"/>
+      <circle class="tp" cx="606" cy="1176" r="16"/>
+    </g>
+    <g id="frameGold" opacity="0">
+      <path d="M 580,450 L 920,450 L 920,790 L 580,790 Z M 600,470 L 600,770 L 900,770 L 900,470 Z" fill="#B8924A" fill-rule="evenodd"/>
+      <path d="M 586,456 L 914,456 L 914,784 L 586,784 Z" fill="none" stroke="#E2C27A" stroke-width="2"/>
+      <path class="ink" stroke-width="5" d="M 580,450 L 920,450 L 920,790 L 580,790 Z M 600,470 L 900,470 L 900,770 L 600,770 Z"/>
+    </g>
+  </g>
+
+  <!-- end card -->
+  <g id="card" opacity="0" text-anchor="middle">
+    <text class="t1" x="540" y="1140">Ο πιο αγαπημένος</text>
+    <text class="t1" x="540" y="1230">πίνακας του σπιτιού.</text>
+    <path d="M 470,1300 L 610,1300" stroke="#B8924A" stroke-width="3"/>
+    <text class="t2" x="546" y="1380">PROVENANCE EDITIONS</text>
+    <text class="t3" x="540" y="1460">Διάλεξε στυλ →</text>
+    <text class="t4" x="540" y="1522">provenanceeditions.art</text>
+  </g>
+</svg>
+
+<script>
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const ease = x => x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const prog = (t, a, b) => ease(clamp((t - a) / (b - a)));
+const backOut = u => { const c = 1.9; u = clamp(u); return 1 + (c + 1) * Math.pow(u - 1, 3) + c * Math.pow(u - 1, 2); };
+const lerp = (a, b, u) => a + (b - a) * u;
+const NS = 'http://www.w3.org/2000/svg';
+
+// Eyes: amber iris, slit pupil, a lid clipped to the eye that closes from the top.
+const mk = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); for (const k in attrs) el.setAttribute(k, attrs[k]); parent.appendChild(el); return el; };
+const eyes = [...document.querySelectorAll('.eye')].map((g, k) => {
+  const x = +g.dataset.x, y = -252;
+  const clip = mk('clipPath', { id: 'eyeClip' + k }, g);
+  mk('ellipse', { cx: x, cy: y, rx: 15, ry: 13 }, clip);
+  mk('ellipse', { cx: x, cy: y, rx: 15, ry: 13, fill: '#F2C230' }, g);
+  const inner = mk('g', { 'clip-path': `url(#eyeClip${k})` }, g);
+  const pupil = mk('ellipse', { cx: x, cy: y, rx: 3.5, ry: 11, fill: '#111' }, inner);
+  const glint = mk('circle', { cx: x - 4, cy: y - 5, r: 3, fill: '#FFF8EC' }, inner);
+  const lid = mk('path', { d: '', fill: '#1F1C24', stroke: '#0E0C10', 'stroke-width': 2.5 }, inner);
+  return { x, y, pupil, glint, lid };
+});
+function setEyes(close, lookX, lookY, dilate) {
+  for (const e of eyes) {
+    const px = e.x + lookX, py = e.y + lookY;
+    e.pupil.setAttribute('cx', px); e.pupil.setAttribute('cy', py); e.pupil.setAttribute('rx', 3.5 + 4 * dilate);
+    e.glint.setAttribute('cx', px - 4); e.glint.setAttribute('cy', py - 5);
+    const b = e.y - 13 + 27 * close;                     // lower edge of the lid
+    e.lid.setAttribute('d', `M ${e.x - 18},${e.y - 30} L ${e.x + 18},${e.y - 30} L ${e.x + 18},${b} Q ${e.x},${b + 4} ${e.x - 18},${b} Z`);
+  }
+}
+
+const pops = [...document.querySelectorAll('.pop')];
+const DOG = window.PAINTING || 'painting.jpg', CAT_IMG = window.CATPAINTING || 'painting-cat.jpg';
+document.getElementById('dogPainting').setAttribute('href', DOG);
+document.querySelectorAll('.catpainting').forEach(el => el.setAttribute('href', CAT_IMG));
+const load = src => new Promise(res => { const im = new Image(); im.onload = () => im.decode().then(res); im.src = src; });
+window.ready = Promise.all([load(DOG), load(CAT_IMG)]);
+
+const SOFA = { x: 930, y: 1300, s: 0.62 }, FLOOR = { x: 720, y: 1610, s: 0.92 };
+const blink = (t, t0, d = 0.16) => { const u = (t - t0) / d; return u > 0 && u < 1 ? Math.sin(Math.PI * u) : 0; };
+
+window.renderAt = function (t) {
+  // Everything is already in the room; the decor sits still (no pop-in in episode 2).
+  pops.forEach(g => { g.setAttribute('opacity', 1); g.removeAttribute('transform'); });
+  const bowl = document.querySelector('.pop[data-o="800,1565"]');
+  if (bowl) bowl.setAttribute('transform', 'translate(170,20)');
+
+  // ── Darkness, two amber eyes; the shelf lamp clicks on at 2.5 s with a small flicker.
+  let dark = 0.94;
+  if (t >= 2.5) dark = t < 2.55 ? 0.25 : t < 2.62 ? 0.6 : 0.6 * (1 - prog(t, 2.62, 2.85));
+  document.getElementById('dark').setAttribute('opacity', dark);
+  document.getElementById('glow').setAttribute('opacity', t >= 2.5 ? (t < 2.55 ? 1 : t < 2.62 ? 0.4 : 1) : 0);
+
+  // ── The cat: on the sofa, unimpressed by the dog's portrait, jumps down under the empty frame.
+  const J0 = 4.4, J1 = 4.95, ju = clamp((t - J0) / (J1 - J0)), je = ease(ju);
+  const pos = { x: lerp(SOFA.x, FLOOR.x, je), y: lerp(SOFA.y, FLOOR.y, je) - 170 * Math.sin(Math.PI * ju), s: lerp(SOFA.s, FLOOR.s, je) };
+  const air = ju > 0 && ju < 1 ? Math.sin(Math.PI * ju) : 0;
+  const crouch = Math.max(blink(t, 4.22, 0.2), blink(t, 4.95, 0.18));
+  const sx = pos.s * (1 - 0.06 * air + 0.07 * crouch), sy = pos.s * (1 + 0.09 * air - 0.1 * crouch);
+  document.getElementById('cat').setAttribute('transform',
+    `translate(${pos.x},${pos.y}) rotate(${-9 * air}) scale(${sx},${sy})`);
+
+  const lookDog = prog(t, 2.8, 3.2) * (1 - prog(t, 5.2, 5.8));          // glance at the dog's portrait
+  const dreamy = prog(t, 8.4, 8.9) * (1 - prog(t, 12.1, 12.4));        // remembering
+  const proud = prog(t, 5.9, 6.4) * (1 - dreamy);
+  document.getElementById('catHead').setAttribute('transform',
+    `translate(${-8 * lookDog},${-5 * proud - 5 * dreamy}) rotate(${-6 * lookDog - 7 * dreamy} 0 -200)`);
+  let close = 0.55 * prog(t, 3.3, 3.8) * (1 - prog(t, 4.95, 5.2));      // "seriously?"
+  close = Math.max(close, blink(t, 0.9), blink(t, 1.85));                // blinks in the dark
+  close = Math.max(close, blink(t, 6.6, 0.7) * 0.95);                    // slow "cat kiss" blink
+  close = Math.max(close, 0.42 * dreamy, 0.85 * prog(t, 12.35, 12.6) * (1 - prog(t, 13.4, 13.8)));
+  setEyes(close, -5 * lookDog, -3 * lookDog - 3 * dreamy, 1 - prog(t, 2.5, 3.2));
+  const flick = blink(t, 3.85, 0.35) * 22 + blink(t, 12.35, 0.5) * 26 + Math.sin(t * 2.2) * 5 * prog(t, 5.9, 6.4);
+  document.getElementById('tail').setAttribute('transform', `rotate(${-flick} 66 -10)`);
+
+  // ── Memory: bubbles while the camera is on her face, then the cloud flies into the empty frame.
+  const travel = prog(t, 10.8, 11.7), morph = prog(t, 11.6, 12.5);
+  [...document.querySelectorAll('.tp')].forEach((c, i) => {
+    const u = clamp((t - (8.7 + i * 0.2)) / 0.3), cx = +c.getAttribute('cx'), cy = +c.getAttribute('cy');
+    c.setAttribute('opacity', (u > 0 ? Math.min(1, u * 3) : 0) * (1 - prog(t, 10.8, 11.2)));
+    c.setAttribute('transform', `translate(${cx},${cy}) scale(${Math.max(0.001, backOut(u))}) translate(${-cx},${-cy})`);
+  });
+  const pop = clamp((t - 9.75) / 0.5), popS = pop > 0 ? backOut(pop) : 0.001;
+  const mx = lerp(560, 750, travel), my = lerp(1080, 620, travel) - 50 * Math.sin(Math.PI * travel);
+  const ms = lerp(0.45, 300 / 420, travel) * popS;
+  document.getElementById('memMove').setAttribute('transform', `translate(${mx},${my}) scale(${Math.max(0.001, ms)}) translate(-540,-650)`);
+  const swell = `translate(540,650) scale(${1 + 1.9 * morph}) translate(-540,-650)`;
+  document.querySelectorAll('.cc, .cb').forEach(c => c.setAttribute('transform', swell));
+  const fc = document.getElementById('memFrameClip');
+  if (morph > 0) fc.setAttribute('clip-path', 'url(#frameInner)'); else fc.removeAttribute('clip-path');
+  document.getElementById('memory').setAttribute('opacity', pop > 0 ? 1 : 0);
+  document.getElementById('cloudBack').setAttribute('opacity', 1 - prog(t, 11.7, 12.4));
+  document.getElementById('vig').setAttribute('opacity', 1 - morph);
+  const breathe = (1 - travel) * prog(t, 9.95, 10.3) * 0.025 * Math.sin(t * Math.PI * 1.4);
+  document.getElementById('dream').setAttribute('transform', `translate(540,650) scale(${1 + breathe}) translate(-540,-650)`);
+  document.getElementById('dream').setAttribute('opacity', prog(t, 9.9, 10.3));
+  document.getElementById('real').setAttribute('opacity', prog(t, 11.7, 12.5));
+  document.getElementById('frameGold').setAttribute('opacity', prog(t, 12.1, 12.6));
+
+  // ── Camera.
+  const lerpState = (A, B, u) => {
+    const sc = Math.exp(Math.log(A.s) + (Math.log(B.s) - Math.log(A.s)) * u);
+    const k = (A.s === B.s) ? u : (sc - A.s) / (B.s - A.s);
+    return { s: sc, x: A.x + (B.x - A.x) * k, y: A.y + (B.y - A.y) * k };
+  };
+  const at = (s, wx, wy, scx, scy) => ({ s, x: scx - wx * s, y: scy - wy * s });
+  const WIDE = { s: 1, x: 0, y: 0 };
+  const FACE = at(1.8, 720, 1380, 540, 1000);
+  const PAINT = at(3.0, 750, 620, 540, 960);
+  const CARD = { s: 0.62, x: 540 - 540 * 0.62, y: -60 };
+  const MOVES = [[7.9, 8.6, WIDE, FACE], [9.2, 10.1, FACE, WIDE], [12.6, 13.4, WIDE, PAINT], [14.0, 14.7, PAINT, CARD]];
+  let cam = WIDE;
+  for (const [t0, t1, A, B] of MOVES) { if (t >= t0) cam = lerpState(A, B, prog(t, t0, t1)); }
+  document.getElementById('world').setAttribute('transform', `translate(${cam.x},${cam.y}) scale(${cam.s})`);
+  document.getElementById('card').setAttribute('opacity', prog(t, 14.4, 15.0));
+};
+window.ready.then(() => window.renderAt(0));
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+stills/
+# Client painting and anything rendered from it stay out of the public repo
+impasto-recall/impasto-recall.html
+painting.jpg
+*-v[2-9]*.mp4
+memory-frames/
+*.wav
+*.mp3
+painting-cat.jpg
+*-v1[0-9]*.mp4
+*cat*.mp4
