@@ -7,3 +7,5 @@ memory-frames/
 *.wav
 *.mp3
 painting-cat.jpg
+*-v1[0-9]*.mp4
+*cat*.mp4
