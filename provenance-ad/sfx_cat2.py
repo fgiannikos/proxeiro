@@ -77,7 +77,7 @@ for k, t0 in enumerate(steps):
     if k % 2 == 0: bell(t0 + 0.01, 0.025, pan)
 swish(6.8, 0.25, 0.06, 0.3)                     # head turns to the camera
 purr(7.1, 0.9, 0.06)                            # posing
-shutter(9.5)                                    # the photo -> the painting
+shutter(9.15)                                    # the photo -> the painting
 bell(12.88, 0.06, 0.3); purr(12.9, 1.6, 0.05)   # slow blink under her portrait
 
 # small room ambience, master
